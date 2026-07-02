@@ -7,6 +7,29 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+### Ejecución local en este equipo
+
+En este equipo hay un entorno de Anaconda preparado para esta app:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps
+```
+
+Ejecutar desde la raíz del repositorio:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps\Scripts\streamlit.exe run app.py
+```
+
+Comprobación rápida de dependencias:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps\python.exe -c "import streamlit, pandas, numpy, numpy_financial, openpyxl"
+```
+
+Observación: `conda env list` puede fallar por un problema de plugins/permisos de conda
+(`conda-libmamba-solver`). Usar directamente `python.exe` o `streamlit.exe` del entorno evita ese problema.
+
 ## Despliegue en Streamlit Community Cloud
 
 1. Crear o abrir un repositorio en GitHub.

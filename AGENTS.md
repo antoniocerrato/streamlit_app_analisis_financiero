@@ -22,6 +22,9 @@ La app permite introducir datos por periodos y calcula:
 - rotación del capital;
 - índice de rentabilidad;
 - sensibilidad del VAN.
+- generación de casos aleatorios guiados;
+- descarga y carga de plantilla Excel;
+- modelos de amortización contable.
 
 ## Principios de diseño
 
@@ -66,9 +69,34 @@ No introducir reglas fiscales avanzadas salvo que se documenten claramente. Esta
 - Mantener compatibilidad con Streamlit Community Cloud.
 - Usar nombres de variables en español cuando ayuden a la comprensión docente.
 
+## Entorno local de ejecución
+
+En este equipo hay un entorno de Anaconda preparado para ejecutar apps de Streamlit:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps
+```
+
+Para ejecutar esta app desde la raíz del repositorio, usar directamente:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps\Scripts\streamlit.exe run app.py
+```
+
+Para comprobar dependencias o ejecutar Python en ese entorno:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps\python.exe -c "import streamlit, pandas, numpy, numpy_financial, openpyxl"
+```
+
+Nota para agentes: `conda env list` puede fallar en este equipo por un problema de plugins/permisos de conda
+(`conda-libmamba-solver`). No es necesario usar `conda activate`; se puede invocar directamente `python.exe`
+o `streamlit.exe` desde la ruta anterior.
+
 ## Archivos importantes
 
 - `app.py`: aplicación principal.
+- `calculos.py`: funciones puras para tablas de entrada, amortización y generación de casos.
 - `README.md`: guía general del proyecto.
 - `CONTEXTO_APP.md`: contexto docente y funcional.
 - `docs/modelo-calculo.md`: fórmulas y criterios.
@@ -78,9 +106,7 @@ No introducir reglas fiscales avanzadas salvo que se documenten claramente. Esta
 
 ## Tareas futuras posibles
 
-- Separar funciones de cálculo en un módulo `calculos.py`.
 - Añadir pruebas unitarias para VAN, TIR y payback.
-- Añadir importación de datos desde CSV o Excel.
 - Añadir escenarios: optimista, base y pesimista.
 - Añadir exportación a PDF.
 - Añadir enlaces desde la app a la página teórica publicada en GitHub Pages.

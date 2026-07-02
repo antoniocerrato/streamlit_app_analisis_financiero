@@ -9,9 +9,11 @@ La app está pensada para estudiantes de asignaturas de Proyectos, especialmente
 ## Funcionalidades principales
 
 - Entrada editable por periodos.
+- Descarga y carga de plantilla Excel para completar datos fuera de la app.
+- Generador de casos aleatorios guiado por ingresos, gastos, crecimiento, inversiones adicionales y capital circulante.
 - Inversión inicial.
 - Ingresos y gastos de explotación.
-- Amortización contable.
+- Amortización contable manual, lineal, degresiva doble o por suma de dígitos.
 - Base imponible.
 - Tipo de gravamen por periodo, con 25 % por defecto.
 - Impuestos pagados.
@@ -27,6 +29,7 @@ La app está pensada para estudiantes de asignaturas de Proyectos, especialmente
 - Índice de rentabilidad.
 - Sensibilidad del VAN a distintas tasas de descuento.
 - Exportación a Excel.
+- Teoría de apoyo integrada, con fórmulas renderizadas desde Markdown.
 
 ## Criterio docente adoptado
 
@@ -61,6 +64,21 @@ La amortización no se resta directamente en el flujo de caja porque no es una s
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+En el equipo de trabajo habitual existe un entorno de Anaconda ya preparado para Streamlit:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps\Scripts\streamlit.exe run app.py
+```
+
+Si hay que comprobar las dependencias del entorno:
+
+```powershell
+D:\Usuarios\antonio\anaconda3\envs\streamlit-apps\python.exe -c "import streamlit, pandas, numpy, numpy_financial, openpyxl"
+```
+
+Nota: en este equipo `conda env list` puede fallar por un problema de plugins/permisos de conda. Para trabajar
+con esta app basta con usar directamente los ejecutables del entorno `streamlit-apps`.
 
 ## Despliegue en Streamlit Community Cloud
 

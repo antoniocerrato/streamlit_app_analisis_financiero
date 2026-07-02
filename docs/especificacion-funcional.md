@@ -6,13 +6,15 @@ La pantalla principal contiene:
 
 1. Título y descripción.
 2. Barra lateral de parámetros generales.
-3. Tabla editable de datos por periodo.
-4. Indicadores principales.
-5. Tabla de cálculo.
-6. Gráficas.
-7. Sensibilidad del VAN.
-8. Resumen descargable.
-9. Criterios de cálculo usados.
+3. Generador de casos y modelos de amortización.
+4. Descarga y carga de plantilla Excel.
+5. Tabla editable de datos por periodo.
+6. Indicadores principales.
+7. Tabla de cálculo.
+8. Gráficas.
+9. Sensibilidad del VAN.
+10. Resumen descargable.
+11. Criterios de cálculo usados y teoría de apoyo.
 
 ## Barra lateral
 
@@ -32,6 +34,29 @@ La pantalla principal contiene:
 - Opción para compensar bases imponibles negativas.
 - Opción para no considerar impuestos negativos.
 
+### Amortización contable
+
+- Modo manual.
+- Amortización lineal.
+- Amortización degresiva doble.
+- Amortización por suma de dígitos.
+- Valor no amortizable o residual fiscal.
+- Botón para aplicar la amortización calculada a la tabla.
+
+### Generador de casos
+
+Permite crear un caso aleatorio guiado por:
+
+- semilla;
+- ingresos medios aproximados;
+- ratio de gastos de explotación sobre ingresos;
+- crecimiento medio de ingresos;
+- variabilidad del caso;
+- probabilidad e importe medio de inversiones adicionales;
+- variación de capital circulante sobre ingresos;
+- valor residual final;
+- tipo de gravamen.
+
 ## Tabla editable
 
 Columnas:
@@ -44,6 +69,18 @@ Columnas:
 - Inversiones adicionales.
 - Variación del capital circulante.
 - Valor residual u otros cobros.
+
+## Plantilla Excel
+
+La app permite:
+
+- descargar una plantilla con la hoja `Datos por periodo`;
+- completar la plantilla en Excel;
+- subir la plantilla completada;
+- cargar sus datos en la tabla editable.
+
+La plantilla debe respetar las columnas esperadas. Si no encuentra la hoja `Datos por periodo`,
+la app intenta leer la primera hoja del archivo.
 
 ## Indicadores principales
 
@@ -92,3 +129,5 @@ La app permite descargar en Excel:
 
 - tabla de resultados por periodo;
 - resumen de indicadores.
+
+También permite descargar una plantilla Excel independiente para entrada de datos.

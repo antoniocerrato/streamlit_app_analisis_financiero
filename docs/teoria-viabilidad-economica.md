@@ -19,9 +19,9 @@ Puede incluir:
 - licencias;
 - necesidades iniciales de capital circulante.
 
-```text
+$$
 FC_0 = -I_0
-```
+$$
 
 ## 3. Ingresos y gastos de explotación
 
@@ -33,23 +33,23 @@ En Ingeniería Civil, un ejemplo adecuado sería una planta auxiliar de prefabri
 
 La amortización representa la pérdida de valor contable de un activo.
 
-```text
-Amortización anual = Valor amortizable / Vida útil
-```
+$$
+\text{Amortizacion anual} = \frac{\text{Valor amortizable}}{\text{Vida util}}
+$$
 
 La amortización reduce la base imponible, pero no es una salida real de caja.
 
 ## 5. Base imponible
 
-```text
-BI_t = Ingresos_t - Gastos_t - Amortización_t
-```
+$$
+BI_t = Ingresos_t - Gastos_t - Amortizacion_t
+$$
 
 ## 6. Impuestos
 
-```text
-Impuestos_t = BI_liquidable_t × Tipo de gravamen_t
-```
+$$
+Impuestos_t = BI_{liquidable,t} \times TipoGravamen_t
+$$
 
 En la app se usa por defecto el 25 %, aunque puede modificarse por periodo.
 
@@ -57,14 +57,9 @@ En la app se usa por defecto el 25 %, aunque puede modificarse por periodo.
 
 La app usa la formulación directa:
 
-```text
-FC_t = Ingresos_t
-       - Gastos_t
-       - Impuestos_t
-       - InversionesAdicionales_t
-       - VariacionCapitalCirculante_t
-       + ValorResidual_t
-```
+$$
+FC_t = Ingresos_t - Gastos_t - Impuestos_t - InversionesAdicionales_t - \Delta CC_t + ValorResidual_t
+$$
 
 Esta forma es clara para docencia porque muestra directamente las entradas y salidas reales de dinero.
 
@@ -72,17 +67,17 @@ Esta forma es clara para docencia porque muestra directamente las entradas y sal
 
 La tasa de descuento se calcula como:
 
-```text
-k = tasa libre de riesgo + prima de riesgo
-```
+$$
+k = tasa\ libre\ de\ riesgo + prima\ de\ riesgo
+$$
 
 La prima de riesgo compensa la incertidumbre del proyecto.
 
 ## 9. VAN
 
-```text
-VAN = -I_0 + sum(FC_t / (1 + k)^t)
-```
+$$
+VAN = -I_0 + \sum_{t=1}^{n}\frac{FC_t}{(1+k)^t}
+$$
 
 Un VAN positivo indica que el proyecto genera valor por encima de la rentabilidad exigida.
 
@@ -98,13 +93,13 @@ El payback descontado mide cuándo se recupera la inversión usando flujos actua
 
 ## 12. Rotación del capital
 
-```text
-Rotación media anual = Ingresos medios anuales / Inversión inicial
-```
+$$
+Rotacion\ media = \frac{Ingresos\ medios}{Inversion\ inicial}
+$$
 
-```text
-Rotación acumulada = Ingresos acumulados / Inversión inicial
-```
+$$
+Rotacion\ acumulada = \frac{Ingresos\ acumulados}{Inversion\ inicial}
+$$
 
 La rotación ayuda a entender cuánto volumen de actividad genera la inversión, pero no sustituye al VAN ni a la TIR.
 
@@ -123,27 +118,27 @@ Datos:
 
 Base imponible anual:
 
-```text
-BI = 110.000 - 55.000 - 40.000 = 15.000 €
-```
+$$
+BI = 110000 - 55000 - 40000 = 15000
+$$
 
 Impuesto:
 
-```text
-Impuesto = 15.000 × 0,25 = 3.750 €
-```
+$$
+Impuesto = 15000 \times 0{,}25 = 3750
+$$
 
 Flujo de caja anual ordinario:
 
-```text
-FC = 110.000 - 55.000 - 3.750 = 51.250 €
-```
+$$
+FC = 110000 - 55000 - 3750 = 51250
+$$
 
 Flujo de caja del último año:
 
-```text
-FC_4 = 110.000 - 55.000 - 3.750 + 30.000 = 81.250 €
-```
+$$
+FC_4 = 110000 - 55000 - 3750 + 30000 = 81250
+$$
 
 ## 14. Errores habituales
 

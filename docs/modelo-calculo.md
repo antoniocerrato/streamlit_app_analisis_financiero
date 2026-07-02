@@ -18,6 +18,38 @@ BI_t = Ingresos_t - Gastos_t - Amortización_t
 
 La amortización se incluye aquí porque reduce el resultado fiscal.
 
+### 2.1. Modelos de amortización contable
+
+La amortización puede escribirse manualmente en la tabla o calcularse de forma automática.
+En todos los casos se usa solo para calcular la base imponible; no se resta directamente
+en el flujo de caja.
+
+Base amortizable:
+
+```text
+Base_amortizable = Inversion_inicial - Valor_no_amortizable
+```
+
+Amortización lineal:
+
+```text
+Amortizacion_t = Base_amortizable / n
+```
+
+Amortización degresiva doble:
+
+```text
+Amortizacion_t = Saldo_pendiente_t * (2 / n)
+```
+
+En el último periodo se amortiza el saldo pendiente para completar la base amortizable.
+
+Amortización por suma de dígitos:
+
+```text
+Amortizacion_t = Base_amortizable * (n - t + 1) / (1 + 2 + ... + n)
+```
+
 ## 3. Compensación de bases imponibles negativas
 
 La app incluye una opción para compensar bases imponibles negativas de periodos anteriores.
@@ -130,3 +162,27 @@ La rotación del capital no mide rentabilidad por sí sola. Solo mide relación 
 ## 15. Sensibilidad del VAN
 
 La app calcula el VAN para tasas de descuento entre 0 % y 20 %, con incrementos de 1 punto porcentual.
+
+## 16. Generador de casos aleatorios
+
+El generador crea una tabla de entrada a partir de parámetros aproximados. Usa una semilla para que
+el caso sea reproducible.
+
+Los ingresos se generan alrededor de un ingreso medio, con crecimiento y variabilidad:
+
+```text
+Ingresos_t ≈ Ingreso_medio * (1 + crecimiento)^(t-1) * ruido_t
+```
+
+Los gastos de explotación se calculan como proporción de los ingresos, también con variabilidad:
+
+```text
+Gastos_t ≈ Ingresos_t * ratio_gastos * ruido_t
+```
+
+Las inversiones adicionales se generan por periodo según una probabilidad indicada. La variación
+de capital circulante se expresa como porcentaje de los ingresos. El valor residual se coloca en
+el último periodo.
+
+Este generador no pretende predecir datos reales. Su objetivo es producir casos variados y
+razonables para ejercicios de clase.
